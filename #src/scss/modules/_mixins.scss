@@ -1,0 +1,26 @@
+
+// 1920px / 100vw = 0.052vw
+// 192rem / 100vw = 0.52vw
+
+$max-width: 0.052;
+
+// TRIM NUMBER 
+@import '../mixins/function/strip-unit';
+// FONT-SIZE
+@import '../mixins/font-size';
+// WIDHT
+@import '../mixins/width';
+// HEIGHT
+@import '../mixins/height';
+// LINE-HEIGHT
+@import '../mixins/line-height';
+// MARGIN
+@import '../mixins/margin';
+// PADDING
+@import '../mixins/padding';
+// POSITION
+@import '../mixins/position';
+
+
+
+

@@ -1,0 +1,30 @@
+
+  @function calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units: px) {
+    $f-min: strip-unit($f-min);
+    $f-max: strip-unit($f-max);
+    $w-min: strip-unit($w-min);
+    $w-max: strip-unit($w-max);
+    
+      $k: ($f-max - $f-min)/($w-max - $w-min);
+      $b: $f-min - $k * $w-min;
+  
+      $b: $b + $units;
+  
+      @return calc( #{$k} * 100vw + #{$b} );
+  }
+  
+  @mixin font-size($f-min, $f-max, $w-min, $w-max) {
+    
+    font-size: $f-min;
+    
+    @media (min-width: $w-min) {
+        font-size: calcFluidFontSize($f-min, $f-max, $w-min, $w-max);  
+    }
+
+    @media (min-width: $w-max) {
+        font-size: $f-max;
+    }
+  }
+
+
+// @include font-size(14px, 20px, 1200px, 1920px);

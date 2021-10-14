@@ -1,0 +1,78 @@
+@function calcFluidFontSize($min, $max, $w-min, $w-max, $units: px) {
+    $min: strip-unit($min);
+    $max: strip-unit($max);
+    $w-min: strip-unit($w-min);
+    $w-max: strip-unit($w-max);
+    
+    $k: ($max - $min)/($w-max - $w-min);
+    $b: $min - $k * $w-min;
+    $b: $b + $units;
+
+    @return calc( #{$k} * 100vw + #{$b} );
+}
+
+
+@mixin padding($min, $max, $w-min, $w-max) {
+
+    padding: $min;
+    
+    @media (min-width: $w-min) {
+        padding: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        padding: $max;
+    }
+}
+
+
+@mixin padding-top($min, $max, $w-min, $w-max) {
+
+    padding-top: $min;
+
+    @media (min-width: $w-min) {
+        padding-top: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        padding-top: $max;
+    }
+
+}
+
+@mixin padding-right($min, $max, $w-min, $w-max) {
+
+    padding-right: $min;
+    
+    @media (min-width: $w-min) {
+        padding-right: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        padding-right: $max;
+    }
+
+}
+
+@mixin padding-bottom($min, $max, $w-min, $w-max) {
+
+    padding-bottom: $min;
+    
+    @media (min-width: $w-min) {
+        padding-bottom: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        padding-bottom: $max;
+    }
+
+}
+
+@mixin padding-left($min, $max, $w-min, $w-max) {
+    
+    padding-left: $min;
+
+    @media (min-width: $w-min) {
+        padding-left: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        padding-left: $max;
+    }
+
+}

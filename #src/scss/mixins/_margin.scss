@@ -1,0 +1,83 @@
+
+@function calcFluidFontSize($min, $max, $w-min, $w-max, $units: px) {
+    $min: strip-unit($min);
+    $max: strip-unit($max);
+    $w-min: strip-unit($w-min);
+    $w-max: strip-unit($w-max);
+    
+    $k: ($max - $min)/($w-max - $w-min);
+    $b: $min - $k * $w-min;
+    $b: $b + $units;
+
+    @return calc( #{$k} * 100vw + #{$b} );
+}
+  
+
+
+@mixin margin($min, $max, $w-min, $w-max) {
+
+    margin: $min;
+    
+    @media (min-width: $w-min) {
+        margin: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        margin: $max;
+    }
+}
+
+
+@mixin margin-top($min, $max, $w-min, $w-max) {
+
+    margin-top: $min;
+
+    @media (min-width: $w-min) {
+        margin-top: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        margin-top: $max;
+    }
+
+}
+
+@mixin margin-right($min, $max, $w-min, $w-max) {
+
+    margin-right: $min;
+    
+    @media (min-width: $w-min) {
+        margin-right: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        margin-right: $max;
+    }
+
+}
+
+@mixin margin-bottom($min, $max, $w-min, $w-max) {
+
+    margin-bottom: $min;
+    
+    @media (min-width: $w-min) {
+        margin-bottom: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        margin-bottom: $max;
+    }
+
+}
+
+@mixin margin-left($min, $max, $w-min, $w-max) {
+    
+    margin-left: $min;
+
+    @media (min-width: $w-min) {
+        margin-left: calcFluidFontSize($min, $max, $w-min, $w-max);  
+    }
+    @media (min-width: $w-max) {
+        margin-left: $max;
+    }
+
+}
+
+
+// @include margin-left(30px, 120px, 1300px, 1800px);

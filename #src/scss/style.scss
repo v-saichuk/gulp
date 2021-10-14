@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@import './variables';          // VARIABLES
+@import './modules/normalize';  // RESET DEFAULT STYLE
+@import './modules/mixins';     // MIXINS
+@import './modules/fonts';      // FONTS
+@import './details/buttons';    // BUTTONS
+@import './details/decor';      // DECOR ELEMENTS
+
+// --- BLOCKS ---
+@import './blocks/header';      // HEADER
+@import './blocks/main';        // MAIN
+@import './blocks/footer';      // FOOTER
+// --- ./BLOCKS ---
+
+@import './modules/media';      //MEDIA QUERIES
